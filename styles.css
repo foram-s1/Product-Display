@@ -75,7 +75,6 @@ body {
 .next {
   right: 0;
   margin-right: 10%;
-  border-radius: 50%;
 }
 
 /*Product Details*/
@@ -166,7 +165,7 @@ body {
 @media screen and (max-width: 940px) {
   .container {
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 8%;
     align-content: center;
   }
 
@@ -189,6 +188,9 @@ body {
     right: 0;
     top: -65px;
     left: initial;
+  }
+  .next{
+    margin-right: 1%;
   }
 }
 
