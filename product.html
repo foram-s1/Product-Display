@@ -6,28 +6,37 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Poppins&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
+	    
       <!-- Image -->
       <div class="images">
-        <img class="active-img" src="images/p1.jpg" alt="" />
+        <img class="active-img slide" src="images/p1.jpg" alt="" />
+        <img class="inactive slide" src="images/p2.jpg" alt="" />
+        <img class="inactive slide" src="images/p3.jpg" alt="" />
+        <img class="inactive slide" src="images/p4.jpg" alt="" />
+        <img class="inactive slide" src="images/p5.jpg" alt="" />
         <div>
-          <img src="images/p1.jpg" alt=""/>
-          <img src="images/p2.jpg" alt=""/>
-          <img src="images/p3.jpg" alt=""/>
-          <img src="images/p4.jpg" alt=""/>
-          <img src="images/p5.jpg" alt=""/>
+          <img src="images/p1.jpg" alt="" />
+          <img src="images/p2.jpg" alt="" />
+          <img src="images/p3.jpg" alt="" />
+          <img src="images/p4.jpg" alt="" />
+          <img src="images/p5.jpg" alt="" />
         </div>
-        <a class="prev" id="1">&#10094;</a>
-        <a class="next">&#10095;</a>
+        <a class="prev" onclick="slideShow(-1)">&#10094;</a>
+        <a class="next" onclick="slideShow(1)">&#10095;</a>
       </div>
 
       <!-- Description-->
       <div class="decription">
+	      
         <!-- Product Description -->
         <div class="title">
           <h1>Upholstered Sofa</h1>
@@ -37,22 +46,21 @@
           </h5>
           <p>
             Anchor your living room in sophisticated style and impeccable
-            comfort with a single addition. Perfectly balancing wood accents with
-            fabric upholstery.
+            comfort with a single addition. Perfectly balancing wood accents
+            with fabric upholstery.
           </p>
         </div>
 
-
         <!-- Product Ratings -->
         <div class="product-color">
-          <span class="fa fa-star checked" style="margin-left:0 ;"></span>
+          <span class="fa fa-star checked" style="margin-left: 0"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <div class="small">
             <span class="checked">(5.0)</span>
-             review based on 250
+            review based on 250
           </div>
         </div>
 
@@ -65,30 +73,68 @@
         </div>
 
         <div class="delivery">
-          <span class="fa fa-clock-o">&nbsp;&nbsp;</span>Dispatched in 7 working days
+          <span class="fa fa-clock-o">&nbsp;&nbsp;</span>Dispatched in 7 working
+          days
         </div>
 
         <!-- Buttons -->
-        <div style="text-transform: uppercase; margin: 1%;">
+        <div style="text-transform: uppercase; margin: 1%">
           <a href="#" class="cart-btn active">Add to cart</a>
           <a href="#" class="cart-btn">Add to wishlist</a>
         </div>
       </div>
     </div>
+	  
+	<!-- Footer -->
     <footer class="container-base">
-		<div>
-			<h5><img class="icon" src="images/wallet.svg"/> &nbsp;Secure Payment</h5>
-			<p> Don't worry, your money is in secure places</p>
-		</div>
-		<div>
-				<h5><img class="icon" src="images/delivery-truck.svg"/> &nbsp; Fast & Free Delivery</h5>
-				<p> Home delivery $15. For free delivery order over $250</p>
-		</div>
-		<div>
-			<h5><img class="icon" src="images/exchange.svg"/> &nbsp;Return Policy</h5>
-			<p> No hassle return policy</p>
-		</div>
+      <div>
+        <h5>
+          <img class="icon" src="images/wallet.svg" /> &nbsp;Secure Payment
+        </h5>
+        <p>Don't worry, your money is in secure places</p>
+      </div>
+	    
+      <div>
+        <h5>
+          <img class="icon" src="images/delivery-truck.svg" /> &nbsp; Fast &
+          Free Delivery
+        </h5>
+        <p>Home delivery $15. For free delivery order over $250</p>
+      </div>
+	    
+      <div>
+        <h5>
+          <img class="icon" src="images/exchange.svg" /> &nbsp;Return Policy
+        </h5>
+        <p>No hassle return policy</p>
+      </div>
     </footer>
-	&nbsp;
+    &nbsp;
+	  
+	<!-- Carousel Script-->
+    <script>
+      var index = 1;
+      slideShow(index);
+
+      function slideShow(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+
+        // Previous slide inactive
+        slides[index - 1].classList.replace("active-img", "inactive");
+
+        index += n;
+        n = index;
+        if (n > slides.length) {
+          index = 1;
+        }
+        if (n < 1) {
+          index = slides.length;
+        }
+
+        // Next slide active
+        slides[index - 1].classList.replace("inactive", "active-img");
+      }
+    </script>
   </body>
 </html>
